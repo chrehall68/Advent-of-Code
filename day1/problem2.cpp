@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
+#include <vector>
 #include <string>
 
 using namespace std;
@@ -16,6 +17,7 @@ int main()
     string temp;
     int total = 0;
     int reader = 0;
+    vector<int> elves;
     while (getline(file, temp))
     {
         if (!temp.empty())
@@ -26,14 +28,16 @@ int main()
         }
         else
         {
-            max_calories = max(max_calories, total);
+            elves.push_back(total);
             total = 0;
             reader = 0;
         }
     }
 
-    cout << "final answer" << endl;
-    cout << max_calories << endl;
+    sort(elves.begin(), elves.end());
+    size_t size = elves.size();
+    cout << "max, 2nd max, 3rd max: " << elves[size - 1] << ", " << elves[size - 2] << ", " << elves[size - 3] << endl;
+    cout << "sum is " << elves[size - 1] + elves[size - 2] + elves[size - 3] << endl;
 
     return 0;
 }
