@@ -39,7 +39,6 @@ public:
         size_t num_stacks;
         while (o >> num_stacks)
             ;
-        cout << "num stacks is " << num_stacks << endl;
 
         // init the stacks
         for (size_t i = 0; i < num_stacks; ++i)
